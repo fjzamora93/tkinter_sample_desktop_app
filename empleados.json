@@ -1,0 +1,18 @@
+{
+    "nombre": "No se ha proporcionado nombre",
+    "seg_social": "xxxxxxxxx",
+    "pagas_extras": 0,
+    "email": "example@example.com",
+    "irpf": 0.0,
+    "salario": 0.0,
+    "telefono": "666 666 666",
+    "puesto": "Puesto de trabajo",
+    "departamento": "Dpt. de trabajo",
+    "genero": "No especificado",
+    "afiliacion": "xxxxxxxxx",
+    "datos_bancarios": "xxxxxxxxx",
+    "fecha_nacimiento": "2000-01-01",
+    "nif": "xxxxxxxx-x",
+    "direccion": "C/ Falsa, 123",
+    "fecha_inicio": "2000-01-01"
+}
