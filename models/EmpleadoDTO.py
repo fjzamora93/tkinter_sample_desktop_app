@@ -1,6 +1,11 @@
 
 
 class EmpleadoDTO:
+    """"
+    Clase para el empleado en DTO (es decir, el objeto no de la base de datos, sino el que finalmente va a llegar al usuario en la vista).
+    Utilizamos el DTO porque posiblemente hay campos sensibles que quizás no queremos que se muestren.
+    En una aplicación de mayor tamaño, generaríamos un EmpleadoRequestDTO y un EmpleadoResponseDTO.
+    """
     def __init__(self, id: int, nombre: str, seg_social: str, pagas_extras: int, email: str, irpf: float, salario: float, telefono: str, puesto: str, departamento: str, genero: str, afiliacion: str, datos_bancarios: str, fecha_nacimiento: str, nif: str, direccion: str, fecha_inicio: str):
         self.__id = id
         self.__nombre = nombre
@@ -117,7 +122,12 @@ class EmpleadoDTO:
 
     @salario.setter
     def salario(self, value: float):
-        self.__salario = value
+        if value < 0:
+            raise ValueError("El salario no puede ser negativo.")
+        elif value > 100000:
+            self.__salario = 100000
+        else:
+            self.__salario = value
 
     @telefono.setter
     def telefono(self, value: str):

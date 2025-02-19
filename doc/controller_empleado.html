@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module controller_empleado</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>controller_empleado</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/javier/Desktop/TrabajosUnir/DesarrolloInterfaces/controller/controller_empleado.py">/home/javier/Desktop/TrabajosUnir/DesarrolloInterfaces/controller/controller_empleado.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="models.EmpleadoDTO.html">models.EmpleadoDTO</a><br>
+</td><td width="25%" valign=top><a href="database.dbconnection.html">database.dbconnection</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_employee"><strong>add_employee</strong></a>(entry_nombre: str, entry_seg_social: str, entry_pagas_extras: str, entry_email: str, entry_irpf: str, entry_salario: str, entry_telefono: str, entry_puesto: str, entry_departamento: str, entry_genero: str, entry_afiliacion: str, entry_datos_bancarios: str, entry_fecha_nacimiento: str, entry_nif: str, entry_direccion: str, entry_fecha_inicio: str)</dt><dd><tt>Hace&nbsp;una&nbsp;validación&nbsp;de&nbsp;los&nbsp;datos&nbsp;y&nbsp;los&nbsp;inserta&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.&nbsp;Si&nbsp;es&nbsp;una&nbsp;cadena&nbsp;vacía,&nbsp;asigna&nbsp;valores&nbsp;por&nbsp;defecto.</tt></dd></dl>
+ <dl><dt><a name="-obtener_empleado"><strong>obtener_empleado</strong></a>()</dt><dd><tt>Obtiene&nbsp;los&nbsp;datos&nbsp;del&nbsp;último&nbsp;empleado&nbsp;insertado&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;y&nbsp;lo&nbsp;transforma&nbsp;en&nbsp;DTO.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optional[EmpleadoDTO]:&nbsp;Objeto&nbsp;DTO&nbsp;del&nbsp;empleado&nbsp;si&nbsp;existe,&nbsp;de&nbsp;lo&nbsp;contrario&nbsp;None.<br>
+&nbsp;<br>
+Ejemplo&nbsp;de&nbsp;uso:<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;models&nbsp;import&nbsp;EmpleadoDTO<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;datos&nbsp;=&nbsp;(1,&nbsp;"Juan&nbsp;Pérez",&nbsp;"123456",&nbsp;2,&nbsp;"juan@example.com",&nbsp;15.0,&nbsp;3000.0,&nbsp;"654321098",&nbsp;"Desarrollador",&nbsp;"IT",&nbsp;"M",&nbsp;"Sindicato&nbsp;X",&nbsp;"Cuenta&nbsp;XYZ",&nbsp;"1985-06-15",&nbsp;"12345678A",&nbsp;"Calle&nbsp;Falsa&nbsp;123",&nbsp;"2020-01-10")<br>
+&gt;&gt;&gt;&nbsp;db.obtener_datos&nbsp;=&nbsp;lambda:&nbsp;datos<br>
+&gt;&gt;&gt;&nbsp;empleado&nbsp;=&nbsp;<a href="#-obtener_empleado">obtener_empleado</a>()<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;isinstance(empleado,&nbsp;EmpleadoDTO.EmpleadoDTO)&nbsp;or&nbsp;empleado&nbsp;is&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;<br>
+True<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;empleado.nombre<br>
+'Juan&nbsp;Pérez'<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;empleado.salario<br>
+3000.0<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;isinstance(empleado.id,&nbsp;int)<br>
+True<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;isinstance(empleado.pagas_extras,&nbsp;str)<br>
+False<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;isinstance(empleado.fecha_nacimiento,&nbsp;str)<br>
+False</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Optional</strong> = typing.Optional<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

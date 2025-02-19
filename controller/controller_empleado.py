@@ -1,7 +1,7 @@
 import database.dbconnection as db
 from util.entity_mapper import entity_to_dto
-
-
+from typing import Optional, Tuple
+from models import EmpleadoDTO
 
 def add_employee(
     entry_nombre: str,
@@ -64,6 +64,44 @@ def add_employee(
 
 def obtener_empleado():
     """
-    Obtiene los datos del último empleado insertado en la base de datos.
+    Obtiene los datos del último empleado insertado en la base de datos y lo transforma en DTO.
+
+    Returns:
+        Optional[EmpleadoDTO]: Objeto DTO del empleado si existe, de lo contrario None.
+
+    Ejemplo de uso:
+    >>> from models import EmpleadoDTO
+
+    >>> datos = (1, "Juan Pérez", "123456", 2, "juan@example.com", 15.0, 3000.0, "654321098", "Desarrollador", "IT", "M", "Sindicato X", "Cuenta XYZ", "1985-06-15", "12345678A", "Calle Falsa 123", "2020-01-10")
+    >>> db.obtener_datos = lambda: datos
+    >>> empleado = obtener_empleado()
+
+    >>> isinstance(empleado, EmpleadoDTO.EmpleadoDTO) or empleado is None    
+    True
+
+    >>> empleado.nombre
+    'Juan Pérez'
+
+    >>> empleado.salario
+    3000.0
+
+    >>> isinstance(empleado.id, int)
+    True
+
+    >>> isinstance(empleado.pagas_extras, str)
+    False
+
+    >>> isinstance(empleado.fecha_nacimiento, str)
+    True
+
+
     """
     return entity_to_dto(db.obtener_datos())
+
+#PYTHONPATH=./ python3 /home/javier/Desktop/TrabajosUnir/DesarrolloInterfaces/controller/controller_empleado.py
+# pydoc -w ./controller/controller_empleado.py
+# wkhtmltopdf controller_empleado.html controller_empleado.pdf
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True)

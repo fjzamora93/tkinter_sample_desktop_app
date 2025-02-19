@@ -3,11 +3,13 @@ from typing import Optional, Tuple
 
 # CONEXIÓN A LA BASE DE DATOS
 def conectar_db():
+    """Establece conexión con la base de datos SQLite."""
     conexion = sqlite3.connect("empleados.db")
     return conexion
 
 # CREACIÓN INICIAL DE TABLAS
 def crear_tabla():
+    """Crea la tabla empleados en la base de datos si no existe."""
     conexion = conectar_db()
     cursor = conexion.cursor()
     cursor.execute('''
@@ -48,6 +50,20 @@ def insertar_datos(nombre, seg_social, pagas_extras, email, irpf, salario, telef
 
 
 def obtener_datos() -> Optional[Tuple]:
+    """
+
+    Recupera los datos SOLO del último empleado registrado en la base de datos.
+
+    Returns:
+        Optional[Tuple]: Tupla con los datos del empleado si existe, de lo contrario None.
+
+    Ejemplo de uso:
+    >>> resultado = obtener_datos()
+    >>> isinstance(resultado, tuple) or resultado is None
+    True
+
+
+    """
     conexion = conectar_db()
     cursor = conexion.cursor()
     cursor.execute("SELECT * FROM empleados ORDER BY id DESC LIMIT 1")  
@@ -55,10 +71,11 @@ def obtener_datos() -> Optional[Tuple]:
     conexion.close()
     return empleado
 
+# Probar los tests:
+#PYTHONPATH=./ python3 /home/javier/Desktop/TrabajosUnir/DesarrolloInterfaces/database/dbconnection.py
+# pydoc -w ./database/dbconnection.py
+# wkhtmltopdf dbconnection.html dbconnection.pdf
 
 if __name__ == "__main__":
-    try:
-        crear_tabla()
-        print("Tabla creada")
-    except sqlite3.OperationalError:
-        print("Error al crear la tabla")
+    import doctest
+    doctest.testmod(verbose=True)
